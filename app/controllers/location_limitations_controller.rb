@@ -1,0 +1,2 @@
+class LocationLimitationsController < ApplicationController
+end

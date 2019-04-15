@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: MyString
+  time: 2019-04-15 14:32:13
+  user: one
+  destination: one
+  parking_location: one
+  difficulty_rating: 1
+  safety_rating: 1
+  time_spent: 1.5
+  walkability_rating: 1
+  notes: MyText
+
+two:
+  day: MyString
+  time: 2019-04-15 14:32:13
+  user: two
+  destination: two
+  parking_location: two
+  difficulty_rating: 1
+  safety_rating: 1
+  time_spent: 1.5
+  walkability_rating: 1
+  notes: MyText

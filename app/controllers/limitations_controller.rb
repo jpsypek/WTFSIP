@@ -1,0 +1,2 @@
+class LimitationsController < ApplicationController
+end

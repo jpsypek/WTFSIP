@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  parking_location: one
+  limitation: one
+
+two:
+  parking_location: two
+  limitation: two
