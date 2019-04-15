@@ -4,7 +4,7 @@ class CreateDestinations < ActiveRecord::Migration[5.2]
       t.string :name
       t.decimal :latitude
       t.decimal :longitude
-      t.string :type
+      t.string :destination_type
 
       t.timestamps
     end
