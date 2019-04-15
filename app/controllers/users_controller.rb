@@ -2,8 +2,18 @@ class UsersController < ApplicationController
   before_action :find_user, only: [:show, :create, :destroy]
 
   def index
+    if params[:full_name]
+      @user = User.find_by(first_name: params[:full_name].split.first, last_name: params[:full_name].split.last)
+      if @user
+        redirect_to user_path(@user)
+      else
+        @error = true
+        render :index
+      end
+    else
+      @error = false
+    end
   end
-
 
 
   private
