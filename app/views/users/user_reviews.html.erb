@@ -1,0 +1,13 @@
+<% @user.parking_events.each do |event| %>
+<h2><%= event.destination.name %></h2>
+  <h3><%= event.parking_location.name %></h3>
+    <p>Day and Time: <%= event.day %>, <%= event.time %></p>
+    <p>Ease Rating: <%= event.ease_rating %></p>
+    <p>Safety Rating: <%= event.safety_rating %></p>
+    <p>Walkability Rating: <%= event.walkability_rating %></p>
+    <p>Time Spent: <%= event.time_spent %> hours</p>
+    <% if event.notes %>
+    <p>Notes: <%= event.notes %></p>
+    <% end %>
+<%= link_to "Edit this Experience", edit_parking_event_path(event) %>
+<% end %>

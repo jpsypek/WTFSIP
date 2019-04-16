@@ -11,7 +11,7 @@
 <% end %>
 <% end %>
 
-<h3>Please share information about your parking experience at <%= @parking_location.name %>: </h3>
+<!-- <h3>Please share information about your parking experience at <%= @parking_location.name %>: </h3>
 <%= form_for @parking_event, url: create_parking_event_parking_location_path(@parking_location) do |f| %>
 <%= f.label :day %>
 <p><%= f.select :day, options_for_select(Date::DAYNAMES) %></p>
@@ -34,4 +34,4 @@
 <%= f.label :notes %>
 <p><%= f.text_area :notes %></p>
 <%= f.submit "Submit" %>
-<% end %>
+<% end %> -->

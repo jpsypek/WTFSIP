@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show, :create, :destroy]
+  before_action :find_user, only: [:show, :create, :destroy, :user_reviews]
 
   def index
     if params[:full_name]
@@ -13,6 +13,9 @@ class UsersController < ApplicationController
     else
       @error = false
     end
+  end
+
+  def user_reviews
   end
 
   def show

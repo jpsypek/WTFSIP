@@ -13,14 +13,14 @@ class ParkingLocationsController < ApplicationController
     @parking_event = ParkingEvent.new
   end
 
-  def create_parking_event
-    # byebug
-    @parking_event = @parking_location.parking_events.build(parking_location_params)
-    if @parking_event.save
-      @parking_event = ParkingEvent.new
-    end
-    render :show
-  end
+  # def create_parking_event
+  #   # byebug
+  #   @parking_event = @parking_location.parking_events.build(parking_location_params)
+  #   if @parking_event.save
+  #     @parking_event = ParkingEvent.new
+  #   end
+  #   render :show
+  # end
 
   private
 
@@ -29,6 +29,6 @@ class ParkingLocationsController < ApplicationController
   end
 
   def parking_location_params
-    params.require(:parking_location).permit(:name, :latitude, :longitude, parking_events_attributes:[:day, :time, :user_id, :destination_id, :parking_location_id, :ease_rating, :safety_rating, :time_spent, :walkability_rating, :notes])
+    params.require(:parking_location).permit(:name, :latitude, :longitude) #parking_events_attributes:[:day, :time, :user_id, :destination_id, :parking_location_id, :ease_rating, :safety_rating, :time_spent, :walkability_rating, :notes])
   end
 end
