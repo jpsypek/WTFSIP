@@ -1,0 +1,5 @@
+<h1><%= @destination.name %></h1>
+
+<% @destination.parking_locations.uniq.each do |location| %>
+  <p><%= link_to location.name, parking_location_path(location) %></p>
+<% end %>

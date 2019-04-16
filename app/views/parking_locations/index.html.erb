@@ -1,0 +1,3 @@
+<% @parking_locations.each do |parking_location| %>
+  <%= link_to parking_location.name, parking_location_path(parking_location) %>
+<% end %>

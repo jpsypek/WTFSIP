@@ -1,0 +1,11 @@
+<h1><%= @parking_location.name %></h1>
+
+<h3>Average Ease: <%= @parking_location.average_ease %></h3>
+<h3>Average Safety: <%= @parking_location.average_safety %></h3>
+<h3>Average Walkability: <%= @parking_location.average_walkability %></h3>
+
+<h3>Special Notes:</h3>
+<% @parking_location.parking_events.sort_by(&:created_at).reverse.each do |event| %>
+  <p><%= event.notes %></p>
+  <p>              - by <%= event.user.first_name %></p>
+<% end %>

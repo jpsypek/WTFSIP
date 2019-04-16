@@ -15,6 +15,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @destinations = Destination.all
+  end
+
 
   private
 

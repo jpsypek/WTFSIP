@@ -1,2 +1,4 @@
 class ParkingEventsController < ApplicationController
+
+
 end

@@ -15,6 +15,7 @@ Destination.destroy_all
 #users
 kari = User.create(first_name: "Kari", last_name: "Ferenczy")
 jack = User.create(first_name: "Jack", last_name: "Sypek")
+kevin = User.create(first_name: "Kevin", last_name: "Ruggiero")
 
 #destinations
 flatiron = Destination.create(name: "Flatiron", destination_type: "School", latitude: 39.758592, longitude: -105.007217)
@@ -28,6 +29,7 @@ logan_7_w = ParkingLocation.create(name: "Logan and 7th, West", latitude: 39.726
 
 #parking events
 kari_school = ParkingEvent.create(day: "Monday", user: kari, destination: flatiron, parking_location: central_15_NW, ease_rating: 4, safety_rating: 5, time_spent: 8, walkability_rating: 4, notes: "Downhill to your destination, uphill on the way back")
+kevin_school = ParkingEvent.create(day: "Monday", user: kevin, destination: flatiron, parking_location: central_15_NW, ease_rating: 1, safety_rating: 4, time_spent: 9, walkability_rating: 3, notes: "I can never find a spot!!")
 jack_bar = ParkingEvent.create(day: "Thursday", user: jack, destination: alamo, parking_location: conejos_steward_s, ease_rating: 3, safety_rating: 2, time_spent: 3, walkability_rating: 5)
 kari_grocery = ParkingEvent.create(day: "Sunday", user: kari, destination: trader_joes, parking_location: logan_7_w, ease_rating: 2, safety_rating: 4, time_spent: 1, walkability_rating: 4)
 
