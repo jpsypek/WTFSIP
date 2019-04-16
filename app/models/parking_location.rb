@@ -4,6 +4,7 @@ class ParkingLocation < ApplicationRecord
   has_many :parking_events
   has_many :users, through: :parking_events
   has_many :destinations, through: :parking_events
+  accepts_nested_attributes_for :parking_events
 
   def average_ease
     ratings = self.parking_events.map(&:ease_rating)
