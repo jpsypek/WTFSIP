@@ -13,7 +13,10 @@ class DestinationsController < ApplicationController
   end
 
   def show
-
+    if false
+    else
+      @parking_locations = @destination.parking_locations.uniq
+    end
   end
 
   private

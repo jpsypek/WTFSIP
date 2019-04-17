@@ -1,5 +1,3 @@
-require 'pry'
-
 class Destination < ApplicationRecord
   has_many :parking_events
   has_many :users, through: :parking_events
@@ -31,27 +29,29 @@ class Destination < ApplicationRecord
   def filter_cost(price)
     matches = query_limitation("cost", "<", price)
     get_parking_locations(matches)
-    end
-  end
-
-  def filter_ease_rating(int)
-    matches = query_limitation("ease_rating", "<", int)
-    get_parking_locations(matches)
-  end
-
-  #do by location for specific destination
-  def filter_walkability_rating
-
-  end
-
-  def filter_safety_rating(int)
-    matches = query_limitation("safety_rating", ">", int)
-    get_parking_locations(matches)
   end
 
   def filter_time_limit(max_time)
-    self.parking_locations.select do |loc|
-      loc.limitations.first.time_limit <= max_time
+    matches = query_limitation("time_limit", "<=", max_time)
+    get_parking_locations(matches)
+  end
+
+  def filter_ease_rating(int)
+    self.parking_locations.select do |location|
+      location.average_ease >= int
+    end
+  end
+
+  #do by location for specific destination
+  def filter_walkability_rating(int)
+    self.parking_locations.select do |location|
+      location.average_walkability >= int
+    end
+  end
+
+  def filter_safety_rating(int)
+    self.parking_locations.select do |location|
+      location.average_safety >= int
     end
   end
 

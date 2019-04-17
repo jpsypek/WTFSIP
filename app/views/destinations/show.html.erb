@@ -1,5 +1,24 @@
 <h1><%= @destination.name %></h1>
 
+<h5>Filter Parking Locations</h5>
+<%= form_tag destination_path(@destination), method: :get do %>
+<%= label_tag "Time Limit:" %>
+<%= select_tag :time_limit, options_for_select(1.upto(24)), include_blank: true %><br>
+<%= label_tag "Max Cost (per hour):" %>
+<%= select_tag :cost, options_for_select(1.upto(10)), include_blank: true %><br>
+<%= label_tag "Day Available (no street sweeping)" %>
+<%= select_tag :sweep_day, options_for_select(Date::DAYNAMES), include_blank: true %><br>
+<%= label_tag "Handicap Accessible?" %>
+<%= radio_button_tag :handicap_accessible, "Yes" %> Yes
+<%= radio_button_tag :handicap_accessible, "No" %> No<br>
+<%= label_tag "Minimum Average Ease Rating:" %>
+<%= select_tag :average_ease, options_for_select(1.upto(5)), include_blank: true %><br>
+<%= label_tag "Minimum Average Safety Rating:" %>
+<%= select_tag :average_safety, options_for_select(1.upto(5)), include_blank: true %><br>
+<%= submit_tag "Filter Locations" %>
+<% end %>
+
+
 <table class='table'>
   <tr>
     <th scope='col'>Location  </th>
@@ -9,10 +28,10 @@
     <th scope='col'>Handicap Accessible  </th>
   </tr>
 
-  <% @destination.parking_locations.uniq.each do |location| %>
+  <% @parking_locations.each do |location| %>
     <tr>
       <td><%= link_to location.name, parking_location_path(location) %></td>
-      <td><%= location.limitations.first.time_limit %></td>
+      <td><%= location.limitations.first.time_limit %> hours</td>
       <td>$<%= location.limitations.first.cost %></td>
       <td><%= location.limitations.first.sweep_day %></td>
       <td><%= location.limitations.first.handicap_accessible ? 'Yes' : 'No' %></td>

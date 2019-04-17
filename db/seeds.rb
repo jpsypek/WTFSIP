@@ -39,9 +39,9 @@ ParkingEvent.create(day: "Thursday", user: jack, destination: trader_joes, parki
 kari_grocery = ParkingEvent.create(day: "Sunday", user: kari, destination: trader_joes, parking_location: logan_7_w, ease_rating: 2, safety_rating: 4, time_spent: 1, walkability_rating: 4)
 
 #limitations
-limit1 = Limitation.create(time_limit: "Unlimited", cost: 0, sweep_day: "Monday", handicap_accessible: true)
-limit2 = Limitation.create(time_limit: "Two-hour", cost: 0, sweep_day: "Thursday", handicap_accessible: false)
-limit3 = Limitation.create(time_limit: "Unlimited", cost: 0.5, sweep_day: "Wednesday", handicap_accessible: true)
+limit1 = Limitation.create(time_limit: 24, cost: 0, sweep_day: "Monday", handicap_accessible: true)
+limit2 = Limitation.create(time_limit: 2, cost: 0, sweep_day: "Thursday", handicap_accessible: false)
+limit3 = Limitation.create(time_limit: 1, cost: 0.5, sweep_day: "Wednesday", handicap_accessible: true)
 
 #location limitations
 central_limits = LocationLimitation.create(parking_location: central_15_NW, limitation: limit3)

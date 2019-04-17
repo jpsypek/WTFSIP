@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2019_04_15_203213) do
   end
 
   create_table "limitations", force: :cascade do |t|
-    t.string "time_limit"
+    t.integer "time_limit"
     t.float "cost"
     t.string "sweep_day"
     t.boolean "handicap_accessible"
