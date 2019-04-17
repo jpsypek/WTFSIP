@@ -1,5 +1,21 @@
 <h1><%= @destination.name %></h1>
 
-<% @destination.parking_locations.uniq.each do |location| %>
-  <p><%= link_to location.name, parking_location_path(location) %></p>
-<% end %>
+<table class='table'>
+  <tr>
+    <th scope='col'>Location  </th>
+    <th scope='col'>Time Limit  </th>
+    <th scope='col'>Cost Per Hour  </th>
+    <th scope='col'>Street Sweeping Day  </th>
+    <th scope='col'>Handicap Accessible  </th>
+  </tr>
+
+  <% @destination.parking_locations.uniq.each do |location| %>
+    <tr>
+      <td><%= link_to location.name, parking_location_path(location) %></td>
+      <td><%= location.limitations.first.time_limit %></td>
+      <td>$<%= location.limitations.first.cost %></td>
+      <td><%= location.limitations.first.sweep_day %></td>
+      <td><%= location.limitations.first.handicap_accessible ? 'Yes' : 'No' %></td>
+    </tr>
+  <% end %>
+</table>

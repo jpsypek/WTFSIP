@@ -1,3 +1,19 @@
-<% @parking_locations.each do |parking_loc| %>
-  <%= link_to parking_loc.name, parking_location_path(parking_loc, user_id: @user.id) %>
-<% end %>
+<table class='table'>
+  <tr>
+    <th scope='col'>Location  </th>
+    <th scope='col'>Time Limit  </th>
+    <th scope='col'>Cost Per Hour  </th>
+    <th scope='col'>Street Sweeping Day  </th>
+    <th scope='col'>Handicap Accessible  </th>
+  </tr>
+
+  <% @parking_locations.each do |location| %>
+    <tr>
+      <td><%= link_to location.name, parking_location_path(location, user_id: @user.id) %></td>
+      <td><%= location.limitations.first.time_limit %></td>
+      <td>$<%= location.limitations.first.cost %></td>
+      <td><%= location.limitations.first.sweep_day %></td>
+      <td><%= location.limitations.first.handicap_accessible ? 'Yes' : 'No' %></td>
+    </tr>
+  <% end %>
+</table>

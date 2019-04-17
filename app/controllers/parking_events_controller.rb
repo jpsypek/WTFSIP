@@ -6,10 +6,8 @@ class ParkingEventsController < ApplicationController
   end
 
   def create
-    # byebug
     @parking_event = ParkingEvent.create(parking_event_params)
     redirect_to parking_location_path(params[:parking_location_id])
-
   end
 
   private
