@@ -7,17 +7,17 @@ class ParkingLocation < ApplicationRecord
   accepts_nested_attributes_for :parking_events
 
   def average_ease
-    ratings = self.parking_events.map(&:ease_rating)
+    ratings = self.parking_events.map{|event| event.ease_rating.to_f}
     average(ratings)
   end
 
   def average_safety
-    ratings = self.parking_events.map(&:safety_rating)
+    ratings = self.parking_events.map {|event| event.safety_rating.to_f}
     average(ratings)
   end
 
   def average_walkability
-    ratings = self.parking_events.map(&:walkability_rating)
+    ratings = self.parking_events.map {|event| event.walkability_rating.to_f}
     average(ratings)
   end
 

@@ -11,27 +11,43 @@
 <% end %>
 <% end %>
 
-<!-- <h3>Please share information about your parking experience at <%= @parking_location.name %>: </h3>
-<%= form_for @parking_event, url: create_parking_event_parking_location_path(@parking_location) do |f| %>
-<%= f.label :day %>
-<p><%= f.select :day, options_for_select(Date::DAYNAMES) %></p>
-<%= f.label :time %>
-<p><%= f.datetime_select :time, order:[:hour, :minute] %></p>
-<p>Ease Rating:</p>
-<% 1.upto(5).each do |number| %>
- <%= f.radio_button :ease_rating, number.to_i %> <%= number %>
+
+<% if @user %>
+  <h3>Please share information about your parking experience at <%= @parking_location.name %>: </h3>
+  <%= form_for [@parking_location, @parking_event] do |f| %>
+
+  <%= f.hidden_field :parking_location_id, value: @parking_location.id %>
+  <%= f.hidden_field :user_id, value: @user.id %>
+
+  <p><%= f.collection_select :destination_id, @destinations, :id, :name %></p>
+
+  <%= f.label :day %>
+  <p><%= f.select :day, options_for_select(Date::DAYNAMES) %></p>
+
+  <%= f.label :time %>
+  <p><%= f.datetime_select :time, order:[:hour, :minute] %></p>
+
+  <p>Ease Rating:</p>
+  <% 1.upto(5).each do |number| %>
+   <%= f.radio_button :ease_rating, number.to_i %> <%= number %>
+  <% end %>
+
+  <p>Safety Rating:</p>
+  <% 1.upto(5).each do |number| %>
+   <%= f.radio_button :safety_rating, number %> <%= number %>
+  <% end %>
+
+  <p>Walkability Rating:</p>
+  <% 1.upto(5).each do |number| %>
+   <%= f.radio_button :walkability_rating, number %> <%= number %>
+  <% end %>
+
+  <p><%= f.label :time_spent %></p>
+  <p><%= f.text_field :time_spent %> hours</p>
+
+  <%= f.label :notes %>
+  <p><%= f.text_area :notes %></p>
+
+  <%= f.submit "Submit" %>
+  <% end %>
 <% end %>
-<p>Safety Rating:</p>
-<% 1.upto(5).each do |number| %>
- <%= f.radio_button :safety_rating, number %> <%= number %>
-<% end %>
-<p>Walkability Rating:</p>
-<% 1.upto(5).each do |number| %>
- <%= f.radio_button :walkability_rating, number %> <%= number %>
-<% end %>
-<p><%= f.label :time_spent %></p>
-<p><%= f.text_field :time_spent %> hours</p>
-<%= f.label :notes %>
-<p><%= f.text_area :notes %></p>
-<%= f.submit "Submit" %>
-<% end %> -->

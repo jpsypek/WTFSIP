@@ -1,3 +1,3 @@
-<% @parking_locations.each do |parking_location| %>
-  <%= link_to parking_location.name, parking_location_path(parking_location) %>
+<% @parking_locations.each do |parking_loc| %>
+  <%= link_to parking_loc.name, parking_location_path(parking_loc, user_id: @user.id) %>
 <% end %>
