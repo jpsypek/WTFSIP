@@ -19,6 +19,7 @@
   <%= f.hidden_field :parking_location_id, value: @parking_location.id %>
   <%= f.hidden_field :user_id, value: @user.id %>
 
+  <%= f.label "Destination" %>
   <p><%= f.collection_select :destination_id, @destinations, :id, :name %></p>
 
   <%= f.label :day %>
