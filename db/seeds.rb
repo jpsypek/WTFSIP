@@ -31,6 +31,11 @@ logan_7_w = ParkingLocation.create(name: "Logan and 7th, West", latitude: 39.726
 kari_school = ParkingEvent.create(day: "Monday", user: kari, destination: flatiron, parking_location: central_15_NW, ease_rating: 4, safety_rating: 5, time_spent: 8, walkability_rating: 4, notes: "Downhill to your destination, uphill on the way back")
 kevin_school = ParkingEvent.create(day: "Monday", user: kevin, destination: flatiron, parking_location: central_15_NW, ease_rating: 1, safety_rating: 4, time_spent: 9, walkability_rating: 3, notes: "I can never find a spot!!")
 jack_bar = ParkingEvent.create(day: "Thursday", user: jack, destination: alamo, parking_location: conejos_steward_s, ease_rating: 3, safety_rating: 2, time_spent: 3, walkability_rating: 5)
+jack_bar_2 = ParkingEvent.create(day: "Thursday", user: jack, destination: alamo, parking_location: conejos_steward_s, ease_rating: 1, safety_rating: 4, time_spent: 5, walkability_rating: 2)
+jack_bar_3 = ParkingEvent.create(day: "Thursday", user: jack, destination: alamo, parking_location: central_15_NW, ease_rating: 1, safety_rating: 4, time_spent: 5, walkability_rating: 2)
+ParkingEvent.create(day: "Thursday", user: jack, destination: flatiron, parking_location: central_15_NW, ease_rating: 1, safety_rating: 4, time_spent: 5, walkability_rating: 2)
+ParkingEvent.create(day: "Thursday", user: jack, destination: flatiron, parking_location: central_15_NW, ease_rating: 1, safety_rating: 4, time_spent: 5, walkability_rating: 2)
+ParkingEvent.create(day: "Thursday", user: jack, destination: trader_joes, parking_location: conejos_steward_s, ease_rating: 1, safety_rating: 4, time_spent: 5, walkability_rating: 2)
 kari_grocery = ParkingEvent.create(day: "Sunday", user: kari, destination: trader_joes, parking_location: logan_7_w, ease_rating: 2, safety_rating: 4, time_spent: 1, walkability_rating: 4)
 
 #limitations

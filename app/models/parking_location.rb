@@ -22,8 +22,10 @@ class ParkingLocation < ApplicationRecord
   end
 
   def average(array)
-    array.sum / array.length
+    (array.sum / array.length).round(2)
   end
+
+
 
 
 end
