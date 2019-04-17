@@ -13,6 +13,8 @@
 
 <h2>Search for a parking location to leave a review:</h2>
 <%= form_tag '/parking_locations', method: :get do %>
+  <%= hidden_field_tag :user_id, @user.id %>
+
   <%= label_tag "Search by Street" %>
   <%= text_field_tag :search_street %>
 
