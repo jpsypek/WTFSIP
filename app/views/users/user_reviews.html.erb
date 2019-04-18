@@ -1,13 +1,26 @@
 <%= link_to "Return to your home page", user_path(@user) %>
-<% @user.parking_events.each do |event| %>
-<h2><%= event.destination.name %></h2>
-  <h3><%= event.parking_location.name %></h3>
-    <p>Day and Time: <%= event.day %>, <%= event.time %></p>
-    <p>Ease Rating: <%= event.ease_rating %></p>
-    <p>Safety Rating: <%= event.safety_rating %></p>
-    <p>Walkability Rating: <%= event.walkability_rating %></p>
-    <p>Time Spent: <%= event.time_spent %> hours</p>
-    <% if event.notes %>
-    <p>Notes: <%= event.notes %></p>
-    <% end %>
-<% end %>
+
+<div class="containter">
+  <div class="row">
+  <% @user.parking_events.each do |event| %>
+    <div class="col-sm-3">
+      <div class="card text-white bg-info mb-3" style="width: 18rem;">
+        <%= image_tag (event.parking_location.image_url), class: 'card-img-top' %>
+        <div class="card-body">
+          <h5 class="card-title"><%= event.destination.name %></h5>
+          <h6 class="card-title"><%= event.parking_location.name %></h6>
+            <p class="card-text">Day and Time: <%= event.day %>, <%= event.time %></p>
+            <p class="card-text">Ease Rating: <%= event.ease_rating %></p>
+            <p class="card-text">Safety Rating: <%= event.safety_rating %></p>
+            <p class="card-text">Walkability Rating: <%= event.walkability_rating %></p>
+            <p class="card-text">Time Spent: <%= event.time_spent %> hours</p>
+            <% if event.notes %>
+            <p class="card-text">Notes: <%= event.notes %></p>
+            <% end %>
+            <p class="card-text"><small class="text-muted"><%= event.created_at.strftime("%m/%d/%y") %></small></p>
+          </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
