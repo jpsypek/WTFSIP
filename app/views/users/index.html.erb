@@ -1,9 +1,23 @@
-<% if @error %>
-<%= "We could not find that user. Please search again or create the user below." %>
-<% end %>
+<header class="jumbotron jumbotron-fluid p-3 mb-2 bg-warning text-dark">
+  <div class="container p-3 mb-2 bg-warning text-dark">
+    <h1 class="display-4">WHERE THE FUCK SHOULD I PARK?</h1>
+      <p class="lead">Don't waste anymore time driving around looking for a place to park.</p>
+  </div>
+</header>
 
-<%= form_tag users_path, method: :get do %>
-<label>Full Name:</label>
-<%= text_field_tag :full_name %>
-<%= submit_tag "Search for User" %>
-<% end %>
+
+<p class="mx-auto text-danger" style="width: 300px;" >
+  <% if @error %>
+    <%= "We could not find that user. Please search again or create the user below." %>
+  <% end %>
+</p>
+
+<form class="mx-auto" style="width: 300px;" >
+  <div class="form-group">
+    <%= form_tag users_path, method: :get do %>
+      <label>Please Enter Full Name:</label>
+      <%= text_field_tag :full_name %>
+      <button type="submit" class="btn btn-primary">Search for User</button>
+    <% end %>
+  </div>
+</form>

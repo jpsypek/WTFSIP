@@ -1,29 +1,63 @@
-<h1>Welcome, <%= @user.first_name %>!</h1>
+<header class="p-3 mb-2 bg-info text-white">
+  <h1>Welcome, <%= @user.first_name %>! </h1>
+  <h2>Where the fuck do you want to park?</h2>
+</header>
 
-<h2>Search for a destination:</h2>
-<%= form_tag '/destinations', method: :get do %>
-  <%= label_tag "Search by Name" %>
-  <%= text_field_tag :search_name %>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Search for a destination:</h5>
+        <div class="card-text">
+          <%= form_tag '/destinations', method: :get do %>
+            <%= label_tag "Search by Name" %>
+            <%= text_field_tag :search_name %><br>
+            <%= label_tag "Search by Type" %>
+            <%= select_tag :search_type, options_for_select(@destinations.map(&:destination_type)), {include_blank: '' } %><br>
+            <%= submit_tag 'Search for Destination' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Search for a parking location to leave a review:</h5>
+        <div class="card-text">
+          <%= form_tag '/parking_locations', method: :get do %>
+            <%= hidden_field_tag :user_id, @user.id %>
 
-  <%= label_tag "Search by Type" %>
-  <%= select_tag :search_type, options_for_select(@destinations.map(&:destination_type)), {include_blank: '' } %>
+            <%= label_tag "Search by Street" %>
+            <%= text_field_tag :search_street %> <br>
 
-  <%= submit_tag 'Search for Destination' %>
-<% end %>
+            <%= submit_tag 'Search for Parking Location' %>
+          <% end %>
+          <h5><%= link_to "See all your reviews", user_reviews_path(@user) %></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<h2>Search for a parking location to leave a review:</h2>
-<%= form_tag '/parking_locations', method: :get do %>
-  <%= hidden_field_tag :user_id, @user.id %>
 
-  <%= label_tag "Search by Street" %>
-  <%= text_field_tag :search_street %>
-
-  <%= submit_tag 'Search for Parking Location' %>
-<% end %>
-<br>
-<%= link_to "See your reviews", user_reviews_path(@user) %>
 
 <h2>Most Frequented Destinations</h2>
-  <ol><% @user.most_visited_destinations.each do |destination| %>
-    <li><%= link_to destination.name, destination_path(destination) %>, Most Frequented Parking Spot: <%= link_to @user.most_visited_parking_location(destination).name, parking_location_path(@user.most_visited_parking_location(destination)) %></li>
-      <% end %></ol>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col"><% @row = 0 %></th>
+        <th scope="col">Most Frequented Destination</th>
+        <th scope="col">Most Frequented Parking Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.most_visited_destinations.each do |destination| %>
+        <tr>
+          <th scope="row"><%= @row += 1 %></th>
+          <td><%= link_to destination.name, destination_path(destination) %></td>
+          <td><%= link_to @user.most_visited_parking_location(destination).name, parking_location_path(@user.most_visited_parking_location(destination)) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
