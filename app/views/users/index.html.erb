@@ -5,22 +5,28 @@
   </div>
 </header>
 
+<body>
 
-<p class="mx-auto text-danger" style="width: 300px;" >
-  <% if @error %>
-    <%= "We could not find that user. Please search again or create the user below." %>
-  <% end %>
-</p>
 
-<form class="mx-auto" style="width: 300px;" >
-  <div class="form-group">
-    <%= form_tag users_path, method: :get do %>
-      <label>Please Enter Full Name:</label>
-      <%= text_field_tag :full_name %>
-      <button type="submit" class="btn btn-primary">Search for User</button>
+
+
+  <p class="mx-auto text-danger" style="width: 300px;" >
+    <% if @error %>
+      <%= "We could not find that user. Please search again or create the user below." %>
     <% end %>
-    <div class="form-group">
-      <%= button_to "Create a new User", new_user_path, method: :get, class: 'btn btn-primary' %>
+  </p>
+
+
+  <div class="card text-white bg-dark mb-3 mx-auto" style="max-width: 18rem;">
+    <div class="card-body" style="text-align: center">
+      <%= form_tag users_path, method: :get do %>
+        <label>Please Enter Full Name:</label>
+        <%= text_field_tag :full_name %>
+        <button type="submit" class="btn btn-primary">Search for User</button>
+      <% end %>
+      <div class="form-group">
+        <%= button_to "Create a new User", new_user_path, method: :get, class: 'btn btn-primary' %>
     </div>
   </div>
-</form>
+
+</body>
