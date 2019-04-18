@@ -38,20 +38,20 @@ class Destination < ApplicationRecord
 
   def filter_ease_rating(int)
     self.parking_locations.select do |location|
-      location.average_ease >= int
+      location.average_ease >= int.to_f
     end
   end
 
   #do by location for specific destination
   def filter_walkability_rating(int)
     self.parking_locations.select do |location|
-      location.average_walkability >= int
+      location.average_walkability >= int.to_f
     end
   end
 
   def filter_safety_rating(int)
     self.parking_locations.select do |location|
-      location.average_safety >= int
+      location.average_safety >= int.to_f
     end
   end
 

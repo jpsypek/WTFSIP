@@ -13,7 +13,15 @@ class DestinationsController < ApplicationController
   end
 
   def show
-    if false
+    if params[:time_limit]
+      @parking_locations = []
+        @parking_locations << @destination.filter_time_limit(params[:time_limit]) unless params[:time_limit] == ""
+        @parking_locations << @destination.filter_cost(params[:cost]) unless params[:cost] == ""
+        @parking_locations << @destination.filter_sweep_day(params[:sweep_day]) unless params[:sweep_day] == ""
+        @parking_locations << @destination.filter_handicap(params[:handicap_accessible]) unless params[:handicap_accessible] == ""
+        @parking_locations << @destination.filter_ease_rating(params[:average_ease]) unless params[:average_ease] == ""
+        @parking_locations << @destination.filter_safety_rating(params[:average_safety]) unless params[:average_safety] == ""
+      @parking_locations = @parking_locations.flatten.uniq
     else
       @parking_locations = @destination.parking_locations.uniq
     end
@@ -28,4 +36,6 @@ class DestinationsController < ApplicationController
   def destination_params
     params.require(:destination).permit(:name, :latitude, :longitude, :destination_type)
   end
+
+
 end

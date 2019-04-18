@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show, :create, :destroy, :user_reviews]
+  before_action :find_user, only: [:show, :destroy, :user_reviews]
 
   def index
     if params[:full_name]
@@ -12,6 +12,19 @@ class UsersController < ApplicationController
       end
     else
       @error = false
+    end
+  end
+
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.create(user_params)
+      if @user.errors.any?
+        render :new
+      else
+      redirect_to users_path
     end
   end
 
