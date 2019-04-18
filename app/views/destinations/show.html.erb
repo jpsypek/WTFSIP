@@ -1,5 +1,7 @@
 <h1><%= @destination.name %></h1>
 
+<%= image_tag(@destination.image_url)  %>
+
 <h5>Filter Parking Locations (choose one option at a time)</h5>
 <%= form_tag destination_path(@destination), method: :get do %>
 <%= label_tag "Time Limit:" %>
@@ -34,7 +36,7 @@
     <tr>
       <td><%= link_to location.name, parking_location_path(location) %></td>
       <td><%= location.limitations.first.time_limit %> hours</td>
-      <td>$<%= location.limitations.first.cost %></td>
+      <td><%= number_to_currency(location.limitations.first.cost, precision: 2) %></td>
       <td><%= location.limitations.first.sweep_day %></td>
       <td><%= location.limitations.first.handicap_accessible ? 'Yes' : 'No' %></td>
       <td><%= location.average_ease %></td>

@@ -1,5 +1,7 @@
 <h1><%= @parking_location.name %></h1>
 
+<%= image_tag (@parking_location.image_url) %>
+
 <h3>Average Ease: <%= @parking_location.average_ease %></h3>
 <h3>Average Safety: <%= @parking_location.average_safety %></h3>
 <h3>Average Walkability: <%= @parking_location.average_walkability %></h3>

@@ -18,14 +18,14 @@ jack = User.create(first_name: "Jack", last_name: "Sypek")
 kevin = User.create(first_name: "Kevin", last_name: "Ruggiero")
 
 #destinations
-flatiron = Destination.create(name: "Flatiron", destination_type: "School", latitude: 39.758592, longitude: -105.007217)
-alamo = Destination.create(name: "Alamo Draft House", destination_type: "Bar", latitude: 39.740788, longitude: -105.042561)
-trader_joes = Destination.create(name: "Trader Joes", destination_type: "Store", latitude: 39.726848, longitude: -104.982743)
+flatiron = Destination.create(name: "Flatiron", destination_type: "School", latitude: 39.758592, longitude: -105.007217, image_url: 'wework.png')
+alamo = Destination.create(name: "Alamo Draft House", destination_type: "Bar", latitude: 39.740788, longitude: -105.042561, image_url: 'alamo.png')
+trader_joes = Destination.create(name: "Trader Joes", destination_type: "Store", latitude: 39.726848, longitude: -104.982743, image_url: 'traders.png')
 
 #parking locations
-central_15_NW = ParkingLocation.create(name: "Central Street and 15th, Northwest", latitude: 39.757958, longitude: -105.009829)
-conejos_steward_s = ParkingLocation.create(name: "Conejos and Steward, South", latitude: 39.741520, longitude: -105.042417)
-logan_7_w = ParkingLocation.create(name: "Logan and 7th, West", latitude: 39.726752, longitude: -104.982377)
+central_15_NW = ParkingLocation.create(name: "Central Street and 15th, Northwest", latitude: 39.757958, longitude: -105.009829, image_url: 'central.png')
+conejos_steward_s = ParkingLocation.create(name: "Conejos and Steward, South", latitude: 39.741520, longitude: -105.042417, image_url: 'conejo.png')
+logan_7_w = ParkingLocation.create(name: "Logan and 7th, West", latitude: 39.726752, longitude: -104.982377, image_url: 'logan.png')
 
 #parking events
 kari_school = ParkingEvent.create(day: "Monday", user: kari, destination: flatiron, parking_location: central_15_NW, ease_rating: 4, safety_rating: 5, time_spent: 8, walkability_rating: 4, notes: "Downhill to your destination, uphill on the way back")

@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2019_04_15_203213) do
     t.decimal "latitude"
     t.decimal "longitude"
     t.string "destination_type"
+    t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -61,6 +62,7 @@ ActiveRecord::Schema.define(version: 2019_04_15_203213) do
     t.string "name"
     t.decimal "latitude"
     t.decimal "longitude"
+    t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -68,6 +70,7 @@ ActiveRecord::Schema.define(version: 2019_04_15_203213) do
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
+    t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
