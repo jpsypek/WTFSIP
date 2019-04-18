@@ -5,7 +5,7 @@ class DestinationsController < ApplicationController
   def index
     if params[:search_name].length > 0
       @destinations = Destination.where("name LIKE ?", "%#{params[:search_name]}%")
-    elsif params[:search_type]
+    elsif params[:search_type].length > 0
       @destinations = Destination.all.select { |destination| destination.destination_type == params[:search_type]}
     else
       @destinations = Destination.all
