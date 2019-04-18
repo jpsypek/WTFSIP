@@ -14,7 +14,7 @@
             <%= text_field_tag :search_name %><br>
             <%= label_tag "Search by Type" %>
             <%= select_tag :search_type, options_for_select(@destinations.map(&:destination_type)), {include_blank: '' } %><br>
-            <%= submit_tag 'Search for Destination' %>
+            <%= submit_tag 'Search for Destination', class: 'btn btn-primary' %>
           <% end %>
         </div>
       </div>
@@ -31,7 +31,7 @@
             <%= label_tag "Search by Street" %>
             <%= text_field_tag :search_street %> <br>
 
-            <%= submit_tag 'Search for Parking Location' %>
+            <%= submit_tag 'Search for Parking Location', class: 'btn btn-primary' %>
           <% end %>
           <h5><%= link_to "See all your reviews", user_reviews_path(@user) %></h5>
         </div>

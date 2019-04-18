@@ -19,10 +19,8 @@
       <%= text_field_tag :full_name %>
       <button type="submit" class="btn btn-primary">Search for User</button>
     <% end %>
+    <div class="form-group">
+      <%= button_to "Create a new User", new_user_path, method: :get, class: 'btn btn-primary' %>
+    </div>
   </div>
 </form>
-
-
-  <div class="form-group">
-    <%= button_to "Create a new User", new_user_path, method: :get %>
-  </div>

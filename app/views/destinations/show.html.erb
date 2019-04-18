@@ -17,7 +17,7 @@
 <%= select_tag :average_ease, options_for_select(1.upto(5)), include_blank: true %><br>
 <%= label_tag "Minimum Average Safety Rating:" %>
 <%= select_tag :average_safety, options_for_select(1.upto(5)), include_blank: true %><br>
-<%= submit_tag "Filter Locations" %>
+<%= submit_tag "Filter Locations", class: 'btn btn-primary' %>
 <% end %>
 
 
