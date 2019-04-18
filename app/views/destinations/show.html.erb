@@ -1,24 +1,32 @@
-<h1><%= @destination.name %></h1>
+<header class='container mx-auto' style='text-align: center'>
+  <h1 style='text-align: center'><%= @destination.name %></h1>
+  <%= image_tag(@destination.image_url, class:"rounded mx-auto d-block") %>
+</header> <br>
 
-<%= image_tag(@destination.image_url)  %>
+<section class='container mx-auto' style='text-align: center'>
+  <h3>Optimal Parking Location:
+    <h3 class="text-info"><%= @optimal_location.name %></h3>
+  </h3> <br>
+  <h3 class="text-danger">Don't fucking park at <%= @worst_location.name %></h3>
+</section> <br>
 
 <h5>Filter Parking Locations (choose one option at a time)</h5>
 <%= form_tag destination_path(@destination), method: :get do %>
-<%= label_tag "Time Limit:" %>
-<%= select_tag :time_limit, options_for_select(1.upto(24)), include_blank: true %><br>
-<%= label_tag "Max Cost (per hour):" %>
-<%= select_tag :cost, options_for_select(1.upto(10)), include_blank: true %><br>
-<%= label_tag "Day Available (no street sweeping)" %>
-<%= select_tag :sweep_day, options_for_select(Date::DAYNAMES), include_blank: true %><br>
-<%= label_tag "Handicap Accessible?" %>
-<%= radio_button_tag :handicap_accessible, true %> Yes
-<%= radio_button_tag :handicap_accessible, false %> No<br>
-<%= label_tag "Minimum Average Ease Rating:" %>
-<%= select_tag :average_ease, options_for_select(1.upto(5)), include_blank: true %><br>
-<%= label_tag "Minimum Average Safety Rating:" %>
-<%= select_tag :average_safety, options_for_select(1.upto(5)), include_blank: true %><br>
-<%= submit_tag "Filter Locations", class: 'btn btn-primary' %>
-<% end %>
+  <%= label_tag :time_limit, "I don't want a fucking parking meter ticket.  I'll park here for no more than" %>
+  <%= select_tag :time_limit, options_for_select(1.upto(24)), include_blank: true %> hours<br>
+  <%= label_tag :cost, "I'm fucking cheap.  I don't want to pay more than this (per hour):" %>
+  <%= select_tag :cost, options_for_select(1.upto(10)), include_blank: true %><br>
+  <%= label_tag :street_sweep, "I don't want a fucking street sweepting ticket. I need to park on this day:" %>
+  <%= select_tag :sweep_day, options_for_select(Date::DAYNAMES), include_blank: true %><br>
+  <%= label_tag :handicap_accessible, "Handicap Accessible? (Don't fuck with me)" %>
+  <%= radio_button_tag :handicap_accessible, true %> Yes
+  <%= radio_button_tag :handicap_accessible, false %> No<br>
+  <%= label_tag :ease_rating, "I'm fucking lazy. Filter by ease:" %>
+  <%= select_tag :average_ease, options_for_select(1.upto(5)), include_blank: true %><br>
+  <%= label_tag :safety_rating, "I'm fucking scared. Filter by safety:" %>
+  <%= select_tag :average_safety, options_for_select(1.upto(5)), include_blank: true %><br>
+  <%= submit_tag "Filter Locations", class: 'btn btn-primary' %>
+<% end %> <br>
 
 
 <table class='table'>
@@ -43,7 +51,4 @@
       <td><%= location.average_safety %></td>
     </tr>
   <% end %>
-</table>
-
-<h3>Optimal Parking Location: <%= @optimal_location.name %></h3>
-<h3>Don't fucking park here: <%= @worst_location.name %></h3>
+</table> <br>

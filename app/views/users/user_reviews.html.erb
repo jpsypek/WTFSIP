@@ -1,10 +1,10 @@
-<%= link_to "Return to your home page", user_path(@user) %>
+<%= link_to "Fuck my reviews. Take me back to my home page.", user_path(@user) %>
 
 <div class="containter">
   <div class="row">
   <% @user.parking_events.each do |event| %>
-    <div class="col-sm-3">
-      <div class="card text-white bg-info mb-3" style="width: 18rem;">
+    <div class="col-sm-3 mx-auto">
+      <div class="card text-white bg-info mb-3" style="width: 20rem; height: 42rem;">
         <%= image_tag (event.parking_location.image_url), class: 'card-img-top' %>
         <div class="card-body">
           <h5 class="card-title"><%= event.destination.name %></h5>
