@@ -21,11 +21,13 @@
 
 <table class='table'>
   <tr>
-    <th scope='col'>Location  </th>
-    <th scope='col'>Time Limit  </th>
-    <th scope='col'>Cost Per Hour  </th>
-    <th scope='col'>Street Sweeping Day  </th>
-    <th scope='col'>Handicap Accessible  </th>
+    <th scope='col'>Location</th>
+    <th scope='col'>Time Limit</th>
+    <th scope='col'>Cost Per Hour</th>
+    <th scope='col'>Street Sweeping Day</th>
+    <th scope='col'>Handicap Accessible</th>
+    <th scope='col'>Average Ease</th>
+    <th scope='col'>Average Safety</th>
   </tr>
 
   <% @parking_locations.each do |location| %>
@@ -35,6 +37,11 @@
       <td>$<%= location.limitations.first.cost %></td>
       <td><%= location.limitations.first.sweep_day %></td>
       <td><%= location.limitations.first.handicap_accessible ? 'Yes' : 'No' %></td>
+      <td><%= location.average_ease %></td>
+      <td><%= location.average_safety %></td>
     </tr>
   <% end %>
 </table>
+
+<h3>Optimal Parking Location: <%= @optimal_location.name %></h3>
+<h3>Don't fucking park here: <%= @worst_location.name %></h3>

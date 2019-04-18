@@ -55,4 +55,16 @@ class Destination < ApplicationRecord
     end
   end
 
+  def best_parking_location
+    sorted_by_overall_score.last
+  end
+
+  def worst_parking_location
+    sorted_by_overall_score.first
+  end
+
+  def sorted_by_overall_score
+    self.parking_locations.sort_by(&:overall_score)
+  end
+
 end

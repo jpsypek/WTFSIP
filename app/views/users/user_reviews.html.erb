@@ -1,3 +1,4 @@
+<%= link_to "Return to your home page", user_path(@user) %>
 <% @user.parking_events.each do |event| %>
 <h2><%= event.destination.name %></h2>
   <h3><%= event.parking_location.name %></h3>
@@ -9,5 +10,4 @@
     <% if event.notes %>
     <p>Notes: <%= event.notes %></p>
     <% end %>
-<%= link_to "Edit this Experience", edit_parking_event_path(event) %>
 <% end %>

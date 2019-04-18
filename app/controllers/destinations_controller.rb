@@ -25,6 +25,8 @@ class DestinationsController < ApplicationController
     else
       @parking_locations = @destination.parking_locations.uniq
     end
+    @optimal_location = @destination.best_parking_location
+    @worst_location = @destination.worst_parking_location
   end
 
   private

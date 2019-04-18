@@ -25,7 +25,7 @@ class ParkingLocation < ApplicationRecord
     (array.sum / array.length).round(2)
   end
 
-
-
-
+  def overall_score
+    average_ease + average_safety + average_walkability
+  end
 end
