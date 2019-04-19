@@ -11,7 +11,7 @@
         <%= label_tag "Search by Name" %>
         <%= text_field_tag :search_name %><br>
         <%= label_tag "Search by Type" %>
-        <%= select_tag :search_type, options_for_select(@destinations.map(&:destination_type)), {include_blank: '' } %><br>
+        <%= select_tag :search_type, options_for_select(@destinations.map(&:destination_type).uniq), {include_blank: '' } %><br>
         <%= submit_tag 'Search for Destination', class: 'btn btn-primary' %> <br>
       <% end %>
     </div>
@@ -49,9 +49,3 @@
       <% end %>
     </tbody>
   </table>
-
-  <footer class="footer bg-light">
-    <div class="container">
-      <span class="text-muted align-middle">&copy 2019 FerencSypek Industries</span>
-    </div>
-  </footer>

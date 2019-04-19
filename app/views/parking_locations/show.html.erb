@@ -21,7 +21,7 @@
       <div class="card-body ">
         <blockquote class="blockquote mb-0">
           <p><%= event.notes %></p>
-          <footer class="blockquote-footer"> by <%= event.user.first_name %></footer>
+          <footer class="blockquote-footer"> by <%= event.user.first_name %>, <%= event.created_at.strftime("%m/%d/%y") %></footer>
         </blockquote>
       </div>
     </div>

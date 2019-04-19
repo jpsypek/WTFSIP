@@ -34,11 +34,11 @@ central_15_NW = ParkingLocation.create(name: "Central Street and 15th, Northwest
 conejos_steward_s = ParkingLocation.create(name: "Conejos and Steward, South", latitude: 39.741520, longitude: -105.042417, image_url: 'conejo.png')
 logan_7_w = ParkingLocation.create(name: "Logan and 7th, West", latitude: 39.726752, longitude: -104.982377, image_url: 'logan.png')
 central_15_SW = ParkingLocation.create(name: "Central Street and 15th, Southwest", latitude: 39.757958, longitude: -105.009829, image_url: 'central.png')
-platte_20_n = ParkingLocation.create(name: "Platte and 20th, North", image_url: 'platte_20.jpg')
-platte_20_s = ParkingLocation.create(name: "Platte and 20th, South", image_url: 'platte_20.jpg')
-platte_15_w = ParkingLocation.create(name: "Platte and 15th, West", image_url: 'platte_15.jpg')
-osage_34_e = ParkingLocation.create(name: "Osage and 33rd, East", image_url: 'osage_34.jpg')
-vallejo_30_n = ParkingLocation.create(name: "Vallejo and 30th, North", image_url: 'vallejo_30.jpg')
+platte_20_n = ParkingLocation.create(name: "Platte and 20th, North", image_url: 'platte_20.png')
+platte_20_s = ParkingLocation.create(name: "Platte and 20th, South", image_url: 'platte_20.png')
+platte_15_w = ParkingLocation.create(name: "Platte and 15th, West", image_url: 'platte_15.png')
+osage_34_e = ParkingLocation.create(name: "Osage and 33rd, East", image_url: 'osage_34.png')
+vallejo_30_n = ParkingLocation.create(name: "Vallejo and 30th, North", image_url: 'vallejo_30.png')
 
 
 #parking events
