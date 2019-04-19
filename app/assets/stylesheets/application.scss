@@ -26,14 +26,11 @@
 footer {
   width: 100%;
   height: 40px;
+  position: absolute;
+  bottom: 0;
 }
 
 .logo {
   height: 40px;
   width: 100%;
-}
-
-#bottom-footer {
-  bottom: 0;
-  position: absolute;
 }

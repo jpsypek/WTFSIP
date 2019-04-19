@@ -12,6 +12,9 @@ WTFSIP? (Denver Edition) aggregates user-generated data for street parking surro
 
 RSpec
 
+##Wireframe
+
+![screenshot](./app/assets/images/homepage.png)
 
 ## Authors
 
@@ -22,3 +25,5 @@ RSpec
 ## Acknowledgments
 
 * Hat tip
+
+We'd like to thank Kyle for helping us with our domain modeling and Damon for helping us troubleshoot some styling issues.
