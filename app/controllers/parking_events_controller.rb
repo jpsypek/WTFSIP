@@ -1,8 +1,6 @@
 class ParkingEventsController < ApplicationController
 
   def new
-    # @parking_event = ParkingEvent.new
-    # @parking_location = ParkingLocation.find(params[:parking_location_id])
   end
 
   def create
