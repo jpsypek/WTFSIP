@@ -1,24 +1,24 @@
-# README
+# Where the Fuck Should I Park?
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+WTFSIP? (Denver Edition) aggregates user-generated data for street parking surrounding frequently-visited destinations (restaurants, bars, and stores).  Users can filter street parking options to find the best place to park on a given day.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+`git clone`
+`bundle install`
+`rails s`
 
-* System dependencies
+### Testing
 
-* Configuration
+RSpec
 
-* Database creation
 
-* Database initialization
+## Authors
 
-* How to run the test suite
+* **Jack Sypek**
+* **Kari Ferenczy**
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Acknowledgments
 
-* ...
+* Hat tip
