@@ -15,6 +15,10 @@
  */
  @import "bootstrap";
 
+ body {
+   height: 100vh;
+ }
+
 .btn {
   margin: 5px;
 }
@@ -27,4 +31,9 @@ footer {
 .logo {
   height: 40px;
   width: 100%;
+}
+
+#bottom-footer {
+  bottom: 0;
+  position: absolute;
 }
