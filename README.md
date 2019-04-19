@@ -12,7 +12,7 @@ WTFSIP? (Denver Edition) aggregates user-generated data for street parking surro
 
 RSpec
 
-##Wireframe
+## Wireframe
 
 ![screenshot](./app/assets/images/homepage.png)
 
