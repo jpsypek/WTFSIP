@@ -19,7 +19,6 @@ class ParkingLocationsController < ApplicationController
   end
 
   def create_parking_event
-    # byebug
     @parking_event = @parking_location.parking_events.build(parking_location_params)
     if @parking_event.save
       @parking_event = ParkingEvent.new

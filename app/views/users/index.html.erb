@@ -1,32 +1,27 @@
+
+
 <header class="jumbotron jumbotron-fluid p-3 mb-2 bg-warning text-dark">
   <div class="container p-3 mb-2 bg-warning text-dark">
     <h1 class="display-4">WHERE THE FUCK SHOULD I PARK?</h1>
-      <p class="lead">Don't waste anymore time driving around looking for a fucking place to park.</p>
+      <p class="lead">Don't waste any more time driving around looking for a fucking place to park.</p>
   </div>
 </header>
 
 <body class="homepage-img">
-
-
-
-
-  <p class="mx-auto text-danger" style="width: 300px;" >
-    <% if @error %>
-      <%= "We could not find that user. Please search again or create the user below." %>
-    <% end %>
-  </p>
-
-
   <div class="card text-white bg-dark mb-3 mx-auto" style="max-width: 18rem;">
     <div class="card-body" style="text-align: center">
+      <p class="mx-auto text-danger">
+        <% if @error %>
+          <%= "We could not find that user. Please search again or create the user below." %>
+        <% end %>
+      </p>
       <%= form_tag users_path, method: :get do %>
         <label>Please Enter Full Name:</label>
-        <%= text_field_tag :full_name %>
+        <%= text_field_tag :full_name %> <br>
         <button type="submit" class="btn btn-primary">Search for User</button>
       <% end %>
       <div class="form-group">
-        <%= button_to "Create a new User", new_user_path, method: :get, class: 'btn btn-primary' %>
+        <%= button_to "Create a new User", new_user_path, method: :get, class: 'btn btn-primary' %> <br>
     </div>
   </div>
-
 </body>
