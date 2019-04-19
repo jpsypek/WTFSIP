@@ -2,12 +2,14 @@
   <div class="row">
 
 <% @destinations.each do |destination| %>
-  <div class="card card text-white bg-info mb-3 col-sm" style="width: 400px; height: 400px; margin: 20px;">
+<div class="col-sm">
+  <div class="card card text-white bg-info mb-3 mx-auto" style="width: 400px; height: 400px; margin: 20px;">
     <%= link_to image_tag(destination.image_url), destination_path(destination), class: 'card-img-top' %>
     <div class="card-body" style="text-align: center">
       <h5 class="card-title"><%= destination.name %></h5>
       <a href=<%= destination_path(destination) %> class="btn btn-light">Go to <%= destination.name %></a>
     </div>
+  </div>
   </div>
 <% end %>
 
