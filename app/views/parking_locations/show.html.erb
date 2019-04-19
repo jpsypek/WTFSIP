@@ -1,56 +1,73 @@
-<h1><%= @parking_location.name %></h1>
+<header class='container mx-auto' style='text-align: center'>
+  <h1 style='text-align: center'><%= @parking_location.name %></h1>
+  <%= image_tag(@parking_location.image_url, class:"rounded mx-auto d-block") %>
+</header> <br>
 
-<%= image_tag (@parking_location.image_url) %>
 
-<h3>Average Ease: <%= @parking_location.average_ease %></h3>
-<h3>Average Safety: <%= @parking_location.average_safety %></h3>
-<h3>Average Walkability: <%= @parking_location.average_walkability %></h3>
 
+<section class='container mx-auto' style='text-align: center'>
+  <h3 >Average Ease: <%= @parking_location.average_ease %></h3>
+  <h3>Average Safety: <%= @parking_location.average_safety %></h3>
+  <h3>Average Walkability: <%= @parking_location.average_walkability %></h3>
+</section>
+
+<% @number = 0 %>
 <% @parking_location.parking_events.sort_by(&:created_at).reverse.each do |event| %>
   <% if event.notes %>
-  <p><%= event.notes %></p>
-  <p>              - by <%= event.user.first_name %></p>
-<% end %>
-<% end %>
-
-
-<% if @user %>
-  <h3>Please share information about your parking experience at <%= @parking_location.name %>: </h3>
-  <%= form_for [@parking_location, @parking_event] do |f| %>
-
-  <%= f.hidden_field :parking_location_id, value: @parking_location.id %>
-  <%= f.hidden_field :user_id, value: @user.id %>
-
-  <%= f.label "Destination" %>
-  <p><%= f.collection_select :destination_id, @destinations, :id, :name %></p>
-
-  <%= f.label :day %>
-  <p><%= f.select :day, options_for_select(Date::DAYNAMES) %></p>
-
-  <%= f.label :time %>
-  <p><%= f.datetime_select :time, order:[:hour, :minute] %></p>
-
-  <p>Ease Rating:</p>
-  <% 1.upto(5).each do |number| %>
-   <%= f.radio_button :ease_rating, number.to_i %> <%= number %>
-  <% end %>
-
-  <p>Safety Rating:</p>
-  <% 1.upto(5).each do |number| %>
-   <%= f.radio_button :safety_rating, number %> <%= number %>
-  <% end %>
-
-  <p>Walkability Rating:</p>
-  <% 1.upto(5).each do |number| %>
-   <%= f.radio_button :walkability_rating, number %> <%= number %>
-  <% end %>
-
-  <p><%= f.label :time_spent %></p>
-  <p><%= f.text_field :time_spent %> hours</p>
-
-  <%= f.label :notes %>
-  <p><%= f.text_area :notes %></p>
-
-  <%= f.submit "Submit" %>
+    <div class="card">
+      <div class="card-header bg-info">
+        Review <%= @number += 1 %>
+      </div>
+      <div class="card-body ">
+        <blockquote class="blockquote mb-0">
+          <p><%= event.notes %></p>
+          <footer class="blockquote-footer"> by <%= event.user.first_name %></footer>
+        </blockquote>
+      </div>
+    </div>
   <% end %>
 <% end %>
+
+<section style="margin: 20px;">
+  <% if @user %>
+    <h3>Please share information about your parking experience at <%= @parking_location.name %>.</h3>
+      <h4 class="text-warning">You will not be able to edit your review so make it fucking good.</h4>
+    <%= form_for [@parking_location, @parking_event] do |f| %>
+
+    <%= f.hidden_field :parking_location_id, value: @parking_location.id %>
+    <%= f.hidden_field :user_id, value: @user.id %>
+
+    <%= f.label "Destination" %>
+    <p><%= f.collection_select :destination_id, @destinations, :id, :name %></p>
+
+    <%= f.label :day %>
+    <p><%= f.select :day, options_for_select(Date::DAYNAMES) %></p>
+
+    <%= f.label :time %>
+    <p><%= f.datetime_select :time, order:[:hour, :minute] %></p>
+
+    How easy was it to find a spot? <br>
+    <% 1.upto(5).each do |number| %>
+    <%= f.radio_button :ease_rating, number.to_i %> <%= number %>
+    <% end %> <br> <br>
+
+    How safe is this street? <br>
+    <% 1.upto(5).each do |number| %>
+    <%= f.radio_button :safety_rating, number %> <%= number %>
+    <% end %> <br><br>
+
+    How walkable was this location to your destination? <br>
+    <% 1.upto(5).each do |number| %>
+    <%= f.radio_button :walkability_rating, number %> <%= number %>
+    <% end %> <br><br>
+
+    <%= f.label :time_spent %> <br>
+    <%= f.text_field :time_spent %> hours <br> <br>
+
+    <%= f.label :notes %> <br>
+    <%= f.text_area :notes %> <br> <br>
+
+    <%= f.submit "Submit" %> <br><br> <br>
+    <% end %>
+  <% end %>
+</section>
